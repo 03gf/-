@@ -1,0 +1,32 @@
+# protobuf学习记录
+```
+syntax = "proto3";
+
+package  fixbug;
+
+option cc_generic_services = true;
+
+
+message ResultCode {
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+
+message LoginRequest {
+    bytes name = 1;
+    bytes pwd = 2;
+}
+
+message LoginResponse {
+    ResultCode result = 1;
+    bytes success = 2;
+}
+
+service UserServiceRpc 
+{
+    rpc Login(LoginRequest) returns(LoginResponse);
+}
+
+
+```
+
